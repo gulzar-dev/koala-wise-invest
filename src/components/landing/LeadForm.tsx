@@ -13,11 +13,16 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/hooks/use-toast";
 import { ArrowRight, Shield, Clock, Phone } from "lucide-react";
 
-const investorTypes = [
-  { value: "first-time", label: "I'm a first-time property investor" },
-  { value: "experienced", label: "I already own property and want to invest again" },
-  { value: "owner-occupier", label: "I'm an owner-occupier looking to invest" },
-  { value: "exploring", label: "I'm just exploring for now" },
+const purposeOptions = [
+  { value: "investment", label: "Investment" },
+  { value: "first-home", label: "First Home Buyer" },
+  { value: "exploring", label: "Exploring options" },
+];
+
+const propertyTypeOptions = [
+  { value: "new-build", label: "New build / off-the-plan" },
+  { value: "existing", label: "Existing property" },
+  { value: "no-preference", label: "No preference" },
 ];
 
 const timelines = [
@@ -27,6 +32,13 @@ const timelines = [
   { value: "researching", label: "Just researching / no fixed timeline" },
 ];
 
+const budgetOptions = [
+  { value: "under-750k", label: "Under $750K" },
+  { value: "750k-900k", label: "$750K–$900K" },
+  { value: "over-900k", label: "Over $900K" },
+  { value: "working-on-it", label: "Working on pre-approval / budget" },
+];
+
 const LeadForm = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -34,8 +46,10 @@ const LeadForm = () => {
     firstName: "",
     email: "",
     phone: "",
-    investorType: "",
+    purpose: "",
+    propertyType: "",
     timeline: "",
+    budget: "",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -55,46 +69,48 @@ const LeadForm = () => {
       firstName: "",
       email: "",
       phone: "",
-      investorType: "",
+      purpose: "",
+      propertyType: "",
       timeline: "",
+      budget: "",
     });
     setIsSubmitting(false);
   };
 
   return (
-    <section id="consultation-form" className="py-20 lg:py-28 bg-background">
+    <section id="consultation-form" className="py-16 lg:py-20 bg-background">
       <div className="container">
-        <div className="max-w-4xl mx-auto">
-          <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-5 gap-10 lg:gap-12">
             {/* Left content */}
             <div className="lg:col-span-2">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-3">
                 Free Consultation
               </span>
-              <h2 className="text-3xl md:text-4xl font-serif mb-4">
+              <h2 className="text-3xl md:text-4xl font-serif mb-3">
                 Start Your Personalised Investment Plan
               </h2>
-              <p className="text-muted-foreground mb-8">
+              <p className="text-muted-foreground mb-6">
                 Book a free, no-obligation call with Koala Invest to explore property 
                 options tailored to your goals and situation.
               </p>
 
-              <div className="space-y-4">
+              <div className="space-y-3">
                 <div className="flex items-center gap-3 text-sm">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Shield className="w-5 h-5 text-primary" />
+                  <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Shield className="w-4 h-4 text-primary" />
                   </div>
                   <span className="text-muted-foreground">100% free, no obligation</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Clock className="w-5 h-5 text-primary" />
+                  <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Clock className="w-4 h-4 text-primary" />
                   </div>
                   <span className="text-muted-foreground">Response within 24 hours</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Phone className="w-5 h-5 text-primary" />
+                  <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Phone className="w-4 h-4 text-primary" />
                   </div>
                   <span className="text-muted-foreground">Personalised guidance call</span>
                 </div>
@@ -105,11 +121,11 @@ const LeadForm = () => {
             <div className="lg:col-span-3">
               <form
                 onSubmit={handleSubmit}
-                className="p-8 rounded-2xl bg-card border border-border/50 shadow-card"
+                className="p-6 lg:p-8 rounded-2xl bg-card border border-border/50 shadow-card"
               >
-                <div className="space-y-6">
-                  {/* Name & Email */}
-                  <div className="grid sm:grid-cols-2 gap-4">
+                <div className="space-y-5">
+                  {/* Name, Email, Phone */}
+                  <div className="grid sm:grid-cols-3 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="firstName">First Name *</Label>
                       <Input
@@ -120,7 +136,7 @@ const LeadForm = () => {
                           setFormData({ ...formData, firstName: e.target.value })
                         }
                         required
-                        className="h-12"
+                        className="h-11"
                       />
                     </div>
                     <div className="space-y-2">
@@ -134,62 +150,83 @@ const LeadForm = () => {
                           setFormData({ ...formData, email: e.target.value })
                         }
                         required
-                        className="h-12"
+                        className="h-11"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="phone">Phone Number *</Label>
+                      <Input
+                        id="phone"
+                        type="tel"
+                        placeholder="Your phone"
+                        value={formData.phone}
+                        onChange={(e) =>
+                          setFormData({ ...formData, phone: e.target.value })
+                        }
+                        required
+                        className="h-11"
                       />
                     </div>
                   </div>
 
-                  {/* Phone */}
+                  {/* Q1: Purpose */}
                   <div className="space-y-2">
-                    <Label htmlFor="phone">Phone Number *</Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      placeholder="Your phone number"
-                      value={formData.phone}
-                      onChange={(e) =>
-                        setFormData({ ...formData, phone: e.target.value })
-                      }
-                      required
-                      className="h-12"
-                    />
-                  </div>
-
-                  {/* Investor Type */}
-                  <div className="space-y-2">
-                    <Label>What best describes you? *</Label>
+                    <Label>Q1. Purpose of buying a property? *</Label>
                     <Select
-                      value={formData.investorType}
+                      value={formData.purpose}
                       onValueChange={(value) =>
-                        setFormData({ ...formData, investorType: value })
+                        setFormData({ ...formData, purpose: value })
                       }
                       required
                     >
-                      <SelectTrigger className="h-12">
+                      <SelectTrigger className="h-11">
                         <SelectValue placeholder="Select an option" />
                       </SelectTrigger>
                       <SelectContent>
-                        {investorTypes.map((type) => (
-                          <SelectItem key={type.value} value={type.value}>
-                            {type.label}
+                        {purposeOptions.map((option) => (
+                          <SelectItem key={option.value} value={option.value}>
+                            {option.label}
                           </SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
                   </div>
 
-                  {/* Timeline */}
-                  <div className="space-y-3">
-                    <Label>When are you looking to invest?</Label>
+                  {/* Q2: Property Type */}
+                  <div className="space-y-2">
+                    <Label>Q2. What type of property are you interested in? *</Label>
+                    <Select
+                      value={formData.propertyType}
+                      onValueChange={(value) =>
+                        setFormData({ ...formData, propertyType: value })
+                      }
+                      required
+                    >
+                      <SelectTrigger className="h-11">
+                        <SelectValue placeholder="Select an option" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {propertyTypeOptions.map((option) => (
+                          <SelectItem key={option.value} value={option.value}>
+                            {option.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  {/* Q3: Timeline */}
+                  <div className="space-y-2">
+                    <Label>Q3. When are you looking to invest? *</Label>
                     <RadioGroup
                       value={formData.timeline}
                       onValueChange={(value) =>
                         setFormData({ ...formData, timeline: value })
                       }
-                      className="grid sm:grid-cols-2 gap-3"
+                      className="grid sm:grid-cols-2 gap-2"
                     >
                       {timelines.map((timeline) => (
-                        <div key={timeline.value} className="flex items-center space-x-3">
+                        <div key={timeline.value} className="flex items-center space-x-2">
                           <RadioGroupItem
                             value={timeline.value}
                             id={timeline.value}
@@ -206,6 +243,29 @@ const LeadForm = () => {
                     </RadioGroup>
                   </div>
 
+                  {/* Q4: Budget */}
+                  <div className="space-y-2">
+                    <Label>Q4. Do you have a pre-approval and budget? *</Label>
+                    <Select
+                      value={formData.budget}
+                      onValueChange={(value) =>
+                        setFormData({ ...formData, budget: value })
+                      }
+                      required
+                    >
+                      <SelectTrigger className="h-11">
+                        <SelectValue placeholder="Select an option" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {budgetOptions.map((option) => (
+                          <SelectItem key={option.value} value={option.value}>
+                            {option.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
                   {/* Submit */}
                   <Button
                     type="submit"
@@ -218,14 +278,15 @@ const LeadForm = () => {
                       "Submitting..."
                     ) : (
                       <>
-                        Get My Free Consultation
+                        Get My Free Investor Roadmap
                         <ArrowRight className="w-5 h-5" />
                       </>
                     )}
                   </Button>
 
-                  <p className="text-center text-sm text-muted-foreground">
-                    Your information is secure and will never be shared.
+                  <p className="text-center text-xs text-muted-foreground">
+                    Your information is secure and will never be shared. Koala Invest 
+                    specialises in high‑yield investments and Koala conservation.
                   </p>
                 </div>
               </form>
