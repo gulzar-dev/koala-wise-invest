@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import koalaLogo from "@/assets/koala-logo.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,26 +29,33 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-card/95 backdrop-blur-md shadow-soft py-3"
-          : "bg-transparent py-5"
+          ? "bg-card/95 backdrop-blur-md shadow-soft py-2"
+          : "bg-transparent py-4"
       }`}
     >
       <div className="container flex items-center justify-between">
         {/* Logo */}
         <a href="/" className="flex items-center gap-2">
-          <span className="text-2xl">🐨</span>
-          <span className="text-xl font-serif font-bold text-foreground">
-            Koala Invest
-          </span>
+          <img 
+            src={koalaLogo} 
+            alt="Koala Invest Logo" 
+            className="h-12 w-auto"
+          />
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-6">
           <button
             onClick={() => scrollToSection("value-props")}
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
             Why Koala Invest
+          </button>
+          <button
+            onClick={() => scrollToSection("calculator")}
+            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Calculator
           </button>
           <button
             onClick={() => scrollToSection("how-it-works")}
@@ -88,12 +96,18 @@ const Header = () => {
       {/* Mobile menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-card border-b border-border shadow-card">
-          <nav className="container py-6 flex flex-col gap-4">
+          <nav className="container py-4 flex flex-col gap-3">
             <button
               onClick={() => scrollToSection("value-props")}
               className="text-left py-2 text-foreground font-medium"
             >
               Why Koala Invest
+            </button>
+            <button
+              onClick={() => scrollToSection("calculator")}
+              className="text-left py-2 text-foreground font-medium"
+            >
+              Calculator
             </button>
             <button
               onClick={() => scrollToSection("how-it-works")}

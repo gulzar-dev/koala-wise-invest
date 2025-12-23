@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/landing/Header";
 import Hero from "@/components/landing/Hero";
 import ValueProps from "@/components/landing/ValueProps";
+import InvestmentCalculator from "@/components/landing/InvestmentCalculator";
 import HowItWorks from "@/components/landing/HowItWorks";
 import Testimonials from "@/components/landing/Testimonials";
 import LeadForm from "@/components/landing/LeadForm";
@@ -39,6 +40,8 @@ const Index = () => {
           <section id="value-props">
             <ValueProps />
           </section>
+          
+          <InvestmentCalculator />
           
           <section id="how-it-works">
             <HowItWorks />

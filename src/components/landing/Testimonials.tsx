@@ -7,6 +7,7 @@ const testimonials = [
     author: "Rohan P.",
     location: "Melbourne",
     type: "First-time investor",
+    initials: "RP",
   },
   {
     quote:
@@ -14,6 +15,7 @@ const testimonials = [
     author: "Sarah & Michael T.",
     location: "Sydney",
     type: "Property investors",
+    initials: "SM",
   },
   {
     quote:
@@ -21,6 +23,7 @@ const testimonials = [
     author: "David K.",
     location: "Brisbane",
     type: "First-time investor",
+    initials: "DK",
   },
   {
     quote:
@@ -28,60 +31,61 @@ const testimonials = [
     author: "Emma L.",
     location: "Perth",
     type: "Experienced investor",
+    initials: "EL",
   },
 ];
 
 const Testimonials = () => {
   return (
-    <section className="py-20 lg:py-28 bg-secondary/30">
+    <section className="py-16 lg:py-20 bg-secondary/30">
       <div className="container">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-3">
             Client Stories
           </span>
-          <h2 className="text-3xl md:text-4xl font-serif mb-4">
+          <h2 className="text-3xl md:text-4xl font-serif mb-3">
             Real People. Real Guidance. Real Outcomes.
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-muted-foreground">
             Hear from investors who've built their portfolios with Koala Invest.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-2 gap-5 lg:gap-6">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="relative p-8 rounded-2xl bg-card border border-border/50 hover:shadow-card transition-all duration-300"
+              className="relative p-6 rounded-2xl bg-card border border-border/50 hover:shadow-card transition-all duration-300"
             >
               {/* Quote icon */}
-              <div className="absolute -top-4 left-8">
-                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-soft">
-                  <Quote className="w-4 h-4 text-primary-foreground" />
+              <div className="absolute -top-3 left-6">
+                <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center shadow-soft">
+                  <Quote className="w-3.5 h-3.5 text-primary-foreground" />
                 </div>
               </div>
 
               {/* Stars */}
-              <div className="flex gap-1 mb-4 pt-2">
+              <div className="flex gap-0.5 mb-3 pt-2">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-accent text-accent" />
                 ))}
               </div>
 
-              <blockquote className="text-foreground leading-relaxed mb-6">
+              <blockquote className="text-foreground leading-relaxed mb-5 text-sm">
                 "{testimonial.quote}"
               </blockquote>
 
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <span className="text-lg font-serif font-semibold text-primary">
-                    {testimonial.author.charAt(0)}
+              <div className="flex items-center gap-3">
+                <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center">
+                  <span className="text-sm font-semibold text-primary-foreground">
+                    {testimonial.initials}
                   </span>
                 </div>
                 <div>
-                  <p className="font-semibold text-foreground">
+                  <p className="font-semibold text-foreground text-sm">
                     {testimonial.author}
                   </p>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-xs text-muted-foreground">
                     {testimonial.location} • {testimonial.type}
                   </p>
                 </div>
