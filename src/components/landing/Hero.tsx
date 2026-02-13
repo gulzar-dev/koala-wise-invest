@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Heart, TrendingUp } from "lucide-react";
-import heroProperty from "@/assets/hero-property.jpg";
+import heroProperty from "@/assets/australian-home.jpg";
 
 const Hero = () => {
   const scrollToForm = () => {

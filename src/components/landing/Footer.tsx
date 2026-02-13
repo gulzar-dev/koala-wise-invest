@@ -66,21 +66,21 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-primary-foreground/50" />
-                <a href="tel:+61415336802" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
-                  +61 415 336 802
+                <a href="tel:0296334233" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
+                  02 9633 4233
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-primary-foreground/50" />
-                <a href="mailto:rexf@koalainvest.com.au" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
-                  rexf@koalainvest.com.au
+                <a href="mailto:invest@koalainvest.com.au" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
+                  invest@koalainvest.com.au
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-primary-foreground/50 mt-0.5" />
                 <span className="text-primary-foreground/70 text-sm">
-                  Suite 1, Level 2, 60 Phillip Street,<br />
-                  Parramatta, NSW 2150
+                  Suite 1, Level 2, 60 Phillip Street<br />
+                  Parramatta 2150
                 </span>
               </li>
             </ul>
