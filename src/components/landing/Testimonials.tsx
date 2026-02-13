@@ -1,4 +1,8 @@
 import { Quote, Star } from "lucide-react";
+import testimonialRohan from "@/assets/testimonial-rohan.jpg";
+import testimonialSarahMichael from "@/assets/testimonial-sarah-michael.jpg";
+import testimonialDavid from "@/assets/testimonial-david.jpg";
+import testimonialEmma from "@/assets/testimonial-emma.jpg";
 
 const testimonials = [
   {
@@ -8,6 +12,7 @@ const testimonials = [
     location: "Melbourne",
     type: "First-time investor",
     initials: "RP",
+    image: testimonialRohan,
   },
   {
     quote:
@@ -16,6 +21,7 @@ const testimonials = [
     location: "Sydney",
     type: "Property investors",
     initials: "SM",
+    image: testimonialSarahMichael,
   },
   {
     quote:
@@ -24,6 +30,7 @@ const testimonials = [
     location: "Brisbane",
     type: "First-time investor",
     initials: "DK",
+    image: testimonialDavid,
   },
   {
     quote:
@@ -32,6 +39,7 @@ const testimonials = [
     location: "Perth",
     type: "Experienced investor",
     initials: "EL",
+    image: testimonialEmma,
   },
 ];
 
@@ -76,10 +84,8 @@ const Testimonials = () => {
               </blockquote>
 
               <div className="flex items-center gap-3">
-                <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center">
-                  <span className="text-sm font-semibold text-primary-foreground">
-                    {testimonial.initials}
-                  </span>
+                <div className="w-11 h-11 rounded-full overflow-hidden bg-primary flex items-center justify-center">
+                  <img src={testimonial.image} alt={testimonial.author} className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <p className="font-semibold text-foreground text-sm">
