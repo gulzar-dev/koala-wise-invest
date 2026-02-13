@@ -34,7 +34,7 @@ const HowItWorks = () => {
   };
 
   return (
-    <section className="py-20 lg:py-28 bg-background">
+    <section className="py-16 lg:py-20 bg-background">
       <div className="container">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
@@ -82,7 +82,7 @@ const HowItWorks = () => {
         {/* CTA */}
         <div className="mt-16 text-center">
           <Button variant="hero" size="lg" onClick={scrollToForm}>
-            Start My Investment Conversation
+            Start Your Journey
             <ArrowRight className="w-5 h-5" />
           </Button>
         </div>

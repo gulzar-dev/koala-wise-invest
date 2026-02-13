@@ -8,7 +8,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-[90vh] bg-hero-gradient overflow-hidden">
+    <section className="relative min-h-[85vh] bg-hero-gradient overflow-hidden">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.03]">
         <div className="absolute top-20 left-10 w-96 h-96 rounded-full bg-primary blur-3xl" />
@@ -52,7 +52,7 @@ const Hero = () => {
                 <ArrowRight className="w-5 h-5" />
               </Button>
               <Button variant="heroOutline" size="xl" onClick={scrollToForm}>
-                Discover Your Investment Path
+                Explore Options
               </Button>
             </div>
 

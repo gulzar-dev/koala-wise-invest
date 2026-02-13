@@ -29,7 +29,7 @@ const values = [
 
 const ValueProps = () => {
   return (
-    <section className="py-20 lg:py-28 bg-card">
+    <section className="py-16 lg:py-20 bg-card">
       <div className="container">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-serif mb-4">

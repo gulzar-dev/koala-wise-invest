@@ -3,9 +3,9 @@ import teamPhoto from "@/assets/team-photo.png";
 
 const TeamPhoto = () => {
   return (
-    <section className="py-16 lg:py-20 bg-background">
+    <section className="py-12 lg:py-16 bg-background">
       <div className="container">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-6xl mx-auto text-center">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-3">
             <Award className="w-4 h-4 inline mr-1.5" />
             Award-Winning Team
