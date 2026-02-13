@@ -5,6 +5,7 @@ import ValueProps from "@/components/landing/ValueProps";
 import InvestmentCalculator from "@/components/landing/InvestmentCalculator";
 import HowItWorks from "@/components/landing/HowItWorks";
 import Testimonials from "@/components/landing/Testimonials";
+import TeamPhoto from "@/components/landing/TeamPhoto";
 import LeadForm from "@/components/landing/LeadForm";
 import FAQ from "@/components/landing/FAQ";
 import Footer from "@/components/landing/Footer";
@@ -50,6 +51,8 @@ const Index = () => {
           <section id="testimonials">
             <Testimonials />
           </section>
+          
+          <TeamPhoto />
           
           <LeadForm />
           

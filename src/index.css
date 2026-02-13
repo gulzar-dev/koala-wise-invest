@@ -50,7 +50,7 @@
     --bronze-light: 24 18% 65%;
     --charcoal: 0 0% 17%;
     --charcoal-light: 0 0% 42%;
-
+    --star: 48 96% 53%;
     /* Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(0 0% 96%) 0%, hsl(153 20% 94%) 100%);
     --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(0 0% 98%) 100%);
