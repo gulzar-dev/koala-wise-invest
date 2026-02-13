@@ -1,5 +1,5 @@
 import { Award } from "lucide-react";
-import teamAward from "@/assets/team-award.jpg";
+import teamPhoto from "@/assets/team-photo.png";
 
 const TeamPhoto = () => {
   return (
@@ -19,8 +19,8 @@ const TeamPhoto = () => {
           </p>
           <div className="rounded-2xl overflow-hidden shadow-elevated">
             <img
-              src={teamAward}
-              alt="Koala Invest award-winning advisory team"
+              src={teamPhoto}
+              alt="Koala Invest advisory team"
               className="w-full object-cover"
             />
           </div>
