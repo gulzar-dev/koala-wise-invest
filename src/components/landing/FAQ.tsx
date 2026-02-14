@@ -24,12 +24,12 @@ const faqs = [
   {
     question: "Is the initial consultation really free?",
     answer:
-      "Absolutely. Your first consultation is completely free with no obligation. It's an opportunity for us to understand your situation and goals, and for you to learn how we can help—without any pressure or commitment.",
+      "Absolutely. Your first consultation is completely free with no obligation. It's an opportunity for us to understand your situation and goals, and for you to learn how we can help - without any pressure or commitment.",
   },
   {
     question: "How does the Koala conservation support work?",
     answer:
-      "Koala Invest actively supports Koala Conservation Australia and the Port Macquarie Koala Hospital through sponsorships and contributions. When you invest with us, you're not just building your financial future—you're also contributing to the protection of Australia's beloved koalas and their natural habitat.",
+      "Koala Invest actively supports Koala Conservation Australia and the Port Macquarie Koala Hospital through sponsorships and contributions. When you invest with us, you're not just building your financial future - you're also contributing to the protection of Australia's beloved koalas and their natural habitat.",
   },
   {
     question: "What ongoing support do you provide after purchase?",
