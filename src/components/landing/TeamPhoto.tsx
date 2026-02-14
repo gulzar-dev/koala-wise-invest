@@ -21,7 +21,7 @@ const TeamPhoto = () => {
             <img
               src={teamPhoto}
               alt="Koala Invest advisory team"
-              className="w-full aspect-video object-cover"
+              className="w-full aspect-[21/9] object-cover object-top"
             />
           </div>
         </div>
