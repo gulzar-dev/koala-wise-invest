@@ -21,7 +21,7 @@ const Hero = () => {
           <div className="max-w-xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 animate-fade-up">
               <MapPin className="w-4 h-4" />
-              <span>Regional Queensland Property Specialists</span>
+              <span>Tailored Investment Solutions</span>
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-serif leading-[1.15] mb-5 animate-fade-up delay-100">

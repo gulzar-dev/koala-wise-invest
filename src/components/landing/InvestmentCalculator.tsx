@@ -169,7 +169,7 @@ const InvestmentCalculator = () => {
           </div>
 
           {/* Disclaimer - aligned below deposit section */}
-          <p className="text-xs text-muted-foreground leading-relaxed mt-4 max-w-5xl mx-auto lg:max-w-[50%] lg:mx-0 lg:ml-[calc((100%-80rem)/2)]">
+          <p className="text-xs text-muted-foreground leading-relaxed mt-4 max-w-3xl mx-auto text-center">
             *Disclaimer: This is a simple estimation tool for illustrative purposes only. 
             It calculates gross rent minus interest only repayments. It does not factor in 
             council rates, insurance, management fees, maintenance, depreciation benefits, 
