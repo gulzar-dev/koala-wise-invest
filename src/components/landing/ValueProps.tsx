@@ -17,7 +17,7 @@ const values = [
     icon: Leaf,
     title: "Investment with Purpose",
     description:
-      "Each investment helps support Koala Conservation Australia and the Port Macquarie Koala Hospital—so your portfolio grows while you help protect Australia's unique wildlife.",
+      "Each investment helps support Koala Conservation Australia and the Port Macquarie Koala Hospital - so your portfolio grows while you help protect Australia's unique wildlife.",
   },
   {
     icon: Users,

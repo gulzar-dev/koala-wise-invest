@@ -35,15 +35,12 @@ const Hero = () => {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-serif leading-tight mb-5 animate-fade-up delay-100">
-              Build Wealth.{" "}
-              <span className="text-gradient">Protect Koalas.</span>{" "}
-              Invest with Purpose.
+              Invest in Regional Queensland{" "}
+              <span className="text-gradient">from $700K</span>
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-6 animate-fade-up delay-200">
-              Personalised off-the-plan and full-turnkey property investment solutions 
-              tailored to your goals—where every investment helps support Koala 
-              conservation in Australia.
+              Personalised investment solutions, backed by expert research and local insights.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 mb-8 animate-fade-up delay-300">

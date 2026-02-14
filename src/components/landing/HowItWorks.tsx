@@ -8,14 +8,14 @@ const steps = [
     title: "Free Consultation",
     description:
       "Share your goals, current situation, and questions in a relaxed conversation.",
-    detail: "No obligations, no sales pitch—just clarity.",
+    detail: "No obligations, no sales pitch - just clarity.",
   },
   {
     number: "02",
     icon: FileSearch,
     title: "Tailored Property Strategy",
     description:
-      "We research and present suitable properties—such as dual-key or duplex options—aligned with your budget, risk comfort, and long-term plans.",
+      "We research and present suitable properties - such as dual-key or duplex options - aligned with your budget, risk comfort, and long-term plans.",
     detail: "Every recommendation backed by thorough research.",
   },
   {
@@ -60,7 +60,7 @@ const HowItWorks = () => {
                   {step.number}
                 </div>
 
-                <div className="p-6 rounded-2xl bg-card border border-border/50">
+                <div className="p-6 rounded-2xl bg-card border border-border/50 h-full flex flex-col">
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
                     <step.icon className="w-6 h-6 text-primary" />
                   </div>
