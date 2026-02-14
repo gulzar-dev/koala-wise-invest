@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Heart, TrendingUp } from "lucide-react";
+import { ArrowRight, Shield, Heart, TrendingUp, MapPin } from "lucide-react";
 import heroProperty from "@/assets/australian-home.jpg";
 
 const Hero = () => {
@@ -8,42 +8,32 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-[85vh] bg-hero-gradient overflow-hidden">
+    <section className="relative min-h-[80vh] bg-hero-gradient overflow-hidden">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.03]">
         <div className="absolute top-20 left-10 w-96 h-96 rounded-full bg-primary blur-3xl" />
         <div className="absolute bottom-20 right-10 w-80 h-80 rounded-full bg-accent blur-3xl" />
       </div>
 
-      {/* Decorative eucalyptus leaves - subtle SVG pattern */}
-      <div className="absolute top-0 right-0 w-1/3 h-full opacity-5">
-        <svg viewBox="0 0 200 400" className="w-full h-full" fill="currentColor">
-          <ellipse cx="150" cy="80" rx="40" ry="20" className="text-primary" transform="rotate(30 150 80)" />
-          <ellipse cx="170" cy="150" rx="35" ry="18" className="text-primary" transform="rotate(-20 170 150)" />
-          <ellipse cx="140" cy="220" rx="38" ry="19" className="text-primary" transform="rotate(15 140 220)" />
-          <ellipse cx="160" cy="300" rx="42" ry="21" className="text-primary" transform="rotate(-25 160 300)" />
-        </svg>
-      </div>
-
-      <div className="container relative pt-24 pb-16 lg:pt-32 lg:pb-24">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+      <div className="container relative pt-24 pb-16 lg:pt-28 lg:pb-20">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Content */}
           <div className="max-w-xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-5 animate-fade-up">
-              <Heart className="w-4 h-4" />
-              <span>Supporting Koala Conservation with Every Investment</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 animate-fade-up">
+              <MapPin className="w-4 h-4" />
+              <span>Regional Queensland Property Specialists</span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-serif leading-tight mb-5 animate-fade-up delay-100">
+            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-serif leading-[1.15] mb-5 animate-fade-up delay-100">
               Invest in Regional Queensland{" "}
               <span className="text-gradient">from $700K</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-6 animate-fade-up delay-200">
-              Personalised investment solutions, backed by expert research and local insights.
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 animate-fade-up delay-200">
+              Personalised investment solutions, backed by expert research and local insights. Build wealth with purpose.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 mb-8 animate-fade-up delay-300">
+            <div className="flex flex-col sm:flex-row gap-3 mb-10 animate-fade-up delay-300">
               <Button variant="hero" size="xl" onClick={scrollToForm}>
                 Get Your Free Consultation
                 <ArrowRight className="w-5 h-5" />
@@ -54,17 +44,23 @@ const Hero = () => {
             </div>
 
             {/* Trust indicators */}
-            <div className="flex flex-wrap gap-5 text-sm text-muted-foreground animate-fade-up delay-400">
-              <div className="flex items-center gap-2">
-                <Shield className="w-4 h-4 text-primary" />
+            <div className="flex flex-wrap gap-6 animate-fade-up delay-400">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Shield className="w-4 h-4 text-primary" />
+                </div>
                 <span>No obligation</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Heart className="w-4 h-4 text-primary" />
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Heart className="w-4 h-4 text-primary" />
+                </div>
                 <span>Ethical guidance</span>
               </div>
-              <div className="flex items-center gap-2">
-                <TrendingUp className="w-4 h-4 text-primary" />
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                  <TrendingUp className="w-4 h-4 text-primary" />
+                </div>
                 <span>Research-driven</span>
               </div>
             </div>
@@ -76,13 +72,13 @@ const Hero = () => {
               <img
                 src={heroProperty}
                 alt="Modern Australian property investment with eucalyptus trees"
-                className="w-full aspect-[5/4] object-cover object-center"
+                className="w-full aspect-[4/3] object-cover object-center"
               />
               {/* Overlay with koala conservation message */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-foreground/90 to-transparent p-5">
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-foreground/80 to-transparent p-5">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center">
-                    <span className="text-xl">🐨</span>
+                    <Heart className="w-5 h-5 text-primary-foreground" />
                   </div>
                   <div className="text-primary-foreground">
                     <p className="font-semibold text-sm">Every investment supports</p>
@@ -93,14 +89,14 @@ const Hero = () => {
             </div>
 
             {/* Floating stats card */}
-            <div className="absolute -bottom-4 -left-4 bg-card rounded-xl p-3 shadow-card animate-float">
+            <div className="absolute -bottom-4 -left-4 bg-card rounded-xl p-3 shadow-card border border-border/50">
               <div className="flex items-center gap-2">
                 <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center">
                   <TrendingUp className="w-4 h-4 text-primary" />
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground">High Returns</p>
-                  <p className="font-semibold text-sm text-foreground">Smart Property Investment</p>
+                  <p className="font-semibold text-sm text-foreground">Smart Investment</p>
                 </div>
               </div>
             </div>

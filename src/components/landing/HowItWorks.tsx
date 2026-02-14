@@ -13,15 +13,15 @@ const steps = [
   {
     number: "02",
     icon: FileSearch,
-    title: "Tailored Property Strategy",
+    title: "Tailored Strategy",
     description:
-      "We research and present suitable properties - such as dual-key or duplex options - aligned with your budget, risk comfort, and long-term plans.",
+      "We research and present suitable properties - such as dual-key or duplex options - aligned with your budget and plans.",
     detail: "Every recommendation backed by thorough research.",
   },
   {
     number: "03",
     icon: Handshake,
-    title: "Confident Action with Support",
+    title: "Ongoing Support",
     description:
       "If you choose to proceed, Koala Invest supports you through the entire process and keeps in touch as your investment progresses.",
     detail: "Guidance doesn't end at purchase.",
@@ -36,7 +36,7 @@ const HowItWorks = () => {
   return (
     <section className="py-16 lg:py-20 bg-background">
       <div className="container">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
             Simple Process
           </span>
@@ -48,29 +48,29 @@ const HowItWorks = () => {
           </p>
         </div>
 
-        <div className="relative">
+        <div className="relative max-w-5xl mx-auto">
           {/* Connection line */}
-          <div className="hidden lg:block absolute top-24 left-1/2 -translate-x-1/2 w-2/3 h-0.5 bg-gradient-to-r from-transparent via-border to-transparent" />
+          <div className="hidden lg:block absolute top-8 left-[15%] right-[15%] h-0.5 bg-gradient-to-r from-transparent via-border to-transparent" />
 
-          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
-            {steps.map((step, index) => (
-              <div key={step.number} className="relative text-center">
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+            {steps.map((step) => (
+              <div key={step.number} className="relative text-center flex flex-col items-center">
                 {/* Step number badge */}
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-cta-gradient text-primary-foreground font-serif text-xl font-bold mb-6 shadow-card relative z-10">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-cta-gradient text-primary-foreground font-serif text-lg font-bold mb-5 shadow-card relative z-10">
                   {step.number}
                 </div>
 
-                <div className="p-6 rounded-2xl bg-card border border-border/50 h-full flex flex-col">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <step.icon className="w-6 h-6 text-primary" />
+                <div className="p-5 rounded-2xl bg-card border border-border/50 flex flex-col flex-1 w-full">
+                  <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
+                    <step.icon className="w-5 h-5 text-primary" />
                   </div>
-                  <h3 className="text-xl font-serif font-semibold mb-3">
+                  <h3 className="text-lg font-serif font-semibold mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-muted-foreground mb-3">
+                  <p className="text-sm text-muted-foreground mb-3 flex-1">
                     {step.description}
                   </p>
-                  <p className="text-sm text-primary font-medium">
+                  <p className="text-xs text-primary font-medium mt-auto">
                     {step.detail}
                   </p>
                 </div>
@@ -79,8 +79,8 @@ const HowItWorks = () => {
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="mt-16 text-center">
+        {/* CTA - centered below cards */}
+        <div className="mt-10 text-center">
           <Button variant="hero" size="lg" onClick={scrollToForm}>
             Start Your Journey
             <ArrowRight className="w-5 h-5" />
