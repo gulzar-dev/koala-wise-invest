@@ -27,8 +27,9 @@ const Hero = () => {
         </div>
 
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-[1.15] mb-6 text-primary-foreground animate-fade-up delay-100">
-          Invest in Regional Queensland{" "}
-          <span className="text-primary">from $700K</span>
+          Invest in{" "}
+          <span className="text-primary block">Regional Queensland</span>
+          <span className="text-primary-foreground">from $700K</span>
         </h1>
 
         <p className="text-lg md:text-xl text-primary-foreground/80 leading-relaxed mb-10 max-w-2xl mx-auto animate-fade-up delay-200">
