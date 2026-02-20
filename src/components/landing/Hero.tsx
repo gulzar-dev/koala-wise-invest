@@ -41,10 +41,9 @@ const Hero = () => {
             <ArrowRight className="w-5 h-5" />
           </Button>
           <Button
-            variant="heroOutline"
             size="xl"
             onClick={scrollToForm}
-            className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:border-primary-foreground/50"
+            className="bg-white/15 border-2 border-white text-white hover:bg-white/25 backdrop-blur-sm"
           >
             Explore Options
           </Button>

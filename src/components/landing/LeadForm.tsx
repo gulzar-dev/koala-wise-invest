@@ -27,6 +27,7 @@ const states = [
 const LeadForm = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -46,17 +47,8 @@ const LeadForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
     await new Promise((resolve) => setTimeout(resolve, 1500));
-    toast({
-      title: "Thank you!",
-      description:
-        "A Koala Invest specialist will contact you within 24 hours to arrange your consultation.",
-    });
-    setFormData({
-      firstName: "", email: "", phone: "", purpose: "", propertyType: "",
-      states: [], timeline: "", budget: "", holdingBack: "",
-    });
-    setStep(1);
     setIsSubmitting(false);
+    setIsSubmitted(true);
   };
 
   const canAdvance = () => {
@@ -172,6 +164,37 @@ const LeadForm = () => {
     }
     return null;
   };
+
+  if (isSubmitted) {
+    return (
+      <section id="consultation-form" className="py-16 lg:py-20 bg-background">
+        <div className="container">
+          <div className="max-w-4xl mx-auto text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
+              <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-serif mb-3">You're Almost There!</h2>
+            <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+              Great work, {formData.firstName}! Book your free consultation below to speak with a Koala Invest specialist.
+            </p>
+          </div>
+          <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden border border-border/50 shadow-card">
+            <iframe
+              src="https://koalainvest.zohobookings.com.au/#/16651000000521024"
+              title="Book a Consultation with Koala Invest"
+              width="100%"
+              height="700"
+              className="block"
+              frameBorder="0"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="consultation-form" className="py-16 lg:py-20 bg-background">
