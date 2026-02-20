@@ -40,7 +40,7 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <section className="py-20 lg:py-28 bg-card">
+    <section className="py-10 lg:py-14 bg-card">
       <div className="container">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">

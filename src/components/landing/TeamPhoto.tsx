@@ -3,7 +3,7 @@ import teamPhoto from "@/assets/team-photo.png";
 
 const TeamPhoto = () => {
   return (
-    <section className="py-12 lg:py-16 bg-background">
+    <section className="py-8 lg:py-12 bg-background">
       <div className="container">
         <div className="max-w-6xl mx-auto text-center">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-3">
