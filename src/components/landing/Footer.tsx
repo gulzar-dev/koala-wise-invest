@@ -91,9 +91,13 @@ const Footer = () => {
       {/* Bottom bar */}
       <div className="border-t border-primary-foreground/10">
         <div className="container py-5 flex flex-col md:flex-row justify-between items-center gap-3">
-          <p className="text-sm text-primary-foreground/50">
-            © {new Date().getFullYear()} Koala Invest. All rights reserved.
-          </p>
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
+            <p className="text-sm text-primary-foreground/50">
+              © {new Date().getFullYear()} Koala Invest. All rights reserved.
+            </p>
+            <span className="hidden md:inline text-primary-foreground/30">|</span>
+            <p className="text-sm italic text-primary/70">Transforming Your Real Estate Vision Into Value</p>
+          </div>
           <div className="flex items-center gap-5 text-sm text-primary-foreground/50">
             <a href="#" className="hover:text-primary-foreground transition-colors">
               Privacy Policy

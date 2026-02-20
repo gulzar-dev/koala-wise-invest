@@ -175,9 +175,10 @@ const LeadForm = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h2 className="text-3xl md:text-4xl font-serif mb-3">You're Almost There!</h2>
-            <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-              Great work, {formData.firstName}! Book your free consultation below to speak with a Koala Invest specialist.
+            <h2 className="text-3xl md:text-4xl font-serif mb-3">You're All Set — Priority Investment Consultation</h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Thanks <span className="font-semibold text-foreground">{formData.firstName}</span>, for sharing your details.
+              Book a quick 15‑minute Priority Investment Consultation to get a clear strategy, tailored recommendations and up‑to‑date market insights for your next move.
             </p>
           </div>
           <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden border border-border/50 shadow-card">

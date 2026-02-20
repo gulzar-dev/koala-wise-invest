@@ -19,7 +19,7 @@ export default {
     extend: {
       fontFamily: {
         serif: ["Libre Baskerville", "Georgia", "serif"],
-        sans: ["Source Sans 3", "system-ui", "sans-serif"],
+        sans: ["Open Sans", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

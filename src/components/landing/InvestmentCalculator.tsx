@@ -51,7 +51,7 @@ const InvestmentCalculator = () => {
             Estimate Your Position
           </h2>
           <p className="text-muted-foreground">
-            Estimate your position with a Koala investment.
+            Adjust the sliders below to explore how a Koala Invest property could perform for you — based on your purchase price, expected rent, interest rate, and deposit size.
           </p>
         </div>
 
