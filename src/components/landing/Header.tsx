@@ -39,7 +39,7 @@ const Header = () => {
           <img 
             src={koalaLogo} 
             alt="Koala Invest Logo" 
-            className="h-28 w-auto"
+            className="h-16 w-auto"
           />
         </a>
 
