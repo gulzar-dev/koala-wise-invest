@@ -18,7 +18,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ["Libre Baskerville", "Georgia", "serif"],
+        serif: ["Open Sans", "system-ui", "sans-serif"],
         sans: ["Open Sans", "system-ui", "sans-serif"],
       },
       colors: {

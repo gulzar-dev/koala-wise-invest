@@ -41,7 +41,7 @@ const InvestmentCalculator = () => {
   };
 
   return (
-    <section id="calculator" className="py-16 lg:py-20 bg-secondary/50">
+    <section id="calculator" className="py-10 lg:py-14 bg-secondary/50">
       <div className="container">
         <div className="text-center max-w-2xl mx-auto mb-10">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-3">

@@ -29,10 +29,10 @@ const values = [
 
 const ValueProps = () => {
   return (
-    <section className="py-16 lg:py-20 bg-card">
+    <section className="py-10 lg:py-14 bg-card">
       <div className="container">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-serif mb-4">
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <h2 className="text-3xl md:text-4xl font-sans mb-3">
             The <span className="text-gradient">Koala Invest</span> Difference
           </h2>
           <p className="text-lg text-muted-foreground">
@@ -61,7 +61,7 @@ const ValueProps = () => {
         </div>
 
         {/* Trust message */}
-        <div className="mt-16 text-center">
+        <div className="mt-10 text-center">
           <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-secondary/50 text-muted-foreground">
             <span className="text-2xl">🐨</span>
             <span className="text-sm">

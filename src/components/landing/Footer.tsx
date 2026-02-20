@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="bg-foreground text-primary-foreground">
       {/* Main footer */}
-      <div className="container py-12">
+      <div className="container py-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="lg:col-span-2">
