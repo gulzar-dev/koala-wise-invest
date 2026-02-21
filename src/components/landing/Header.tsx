@@ -29,8 +29,8 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-soft py-2"
-          : "bg-white/80 backdrop-blur-sm py-4"
+          ? "bg-white/95 backdrop-blur-md shadow-soft py-1"
+          : "bg-white/80 backdrop-blur-sm py-2"
       }`}
     >
       <div className="container flex items-center justify-between">
@@ -39,7 +39,7 @@ const Header = () => {
           <img 
             src={koalaLogo} 
             alt="Koala Invest Logo" 
-            className="h-16 w-auto"
+            className="h-20 w-auto"
           />
         </a>
 
@@ -47,31 +47,31 @@ const Header = () => {
         <nav className="hidden md:flex items-center gap-6">
           <button
             onClick={() => scrollToSection("value-props")}
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
             Why Koala Invest
           </button>
           <button
             onClick={() => scrollToSection("calculator")}
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
             Calculator
           </button>
           <button
             onClick={() => scrollToSection("how-it-works")}
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
             How It Works
           </button>
           <button
             onClick={() => scrollToSection("testimonials")}
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
             Success Stories
           </button>
           <button
             onClick={() => scrollToSection("faq")}
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
             FAQ
           </button>
