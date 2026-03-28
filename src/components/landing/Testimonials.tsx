@@ -3,43 +3,45 @@ import testimonialRohan from "@/assets/testimonial-rohan.jpg";
 import testimonialSarahMichael from "@/assets/testimonial-sarah-michael.jpg";
 import testimonialDavid from "@/assets/testimonial-david.jpg";
 import testimonialEmma from "@/assets/testimonial-emma.jpg";
+import testimonialUser from "@/assets/user-account.png";
+
 
 const testimonials = [
   {
     quote:
-      "They guided us step-by-step when we were buying our first investment property. His knowledge of the Australian market and patient explanations made us feel confident at every stage.",
-    author: "Rohan P.",
+    "Good property advice is hard to come by, but Koala Invest really stood out. They listened to what I was looking for and guided me with investment options that truly helped.",
+    author: "Divya M.",
     location: "Melbourne",
     type: "First-time investor",
     initials: "RP",
-    image: testimonialRohan,
+    image: testimonialUser,
   },
   {
     quote:
-      "We bought our first investment property with Koala Invest in 2019 and are very happy with the outcome. The thorough research behind each recommendation really shows.",
-    author: "Sarah & Michael T.",
+    "Received great professional advice and inside in to property market. Amit Pall and his team knows the business well. They do extensive research to give us the best fit investment solution.",
+    author: "Saumil S.",
     location: "Sydney",
-    type: "Property investors",
+    type: "Experienced investors",
     initials: "SM",
-    image: testimonialSarahMichael,
+    image: testimonialUser,
   },
   {
     quote:
-      "As first-time investors, we had a lot of questions. Koala Invest answered every one, calmly and clearly, making the entire process smooth and stress-free.",
-    author: "David K.",
+    "As a first-time investor, I really appreciated how clearly everything was explained and how supportive the team was throughout the process. I'd happily recommend them to anyone starting their investment journey.",
+    author: "Kartik T.",
     location: "Brisbane",
     type: "First-time investor",
     initials: "DK",
-    image: testimonialDavid,
+    image: testimonialUser,
   },
   {
     quote:
-      "What impressed me most was the genuine care for both our financial goals and the conservation impact. It's rare to find an advisor who truly aligns with your values.",
-    author: "Emma L.",
+    "I had a few specific requirements in mind and they helped me by offering a customized investment solution that matched my requirements better than I expected.",
+    author: "Mansi A.",
     location: "Perth",
-    type: "Experienced investor",
+    type: "Property investor",
     initials: "EL",
-    image: testimonialEmma,
+    image: testimonialUser,
   },
 ];
 

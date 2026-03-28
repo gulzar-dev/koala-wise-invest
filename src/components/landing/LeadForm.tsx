@@ -14,7 +14,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { ArrowRight, Shield, Clock, Phone } from "lucide-react";
 
-type Purpose = "" | "investment" | "first-home" | "exploring";
+type Purpose = "" | "Investment" | "First Home Buyer" | "Exploring";
 
 const states = [
   "New South Wales",
@@ -31,6 +31,7 @@ const LeadForm = () => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     firstName: "",
+    lastName: "",
     email: "",
     phone: "",
     purpose: "" as Purpose,
@@ -41,30 +42,116 @@ const LeadForm = () => {
     holdingBack: "",
   });
 
-  const totalSteps = formData.purpose === "exploring" ? 2 : formData.purpose === "first-home" ? 4 : 5;
+  const totalSteps = formData.purpose === "Exploring" ? 2 : formData.purpose === "First Home Buyer" ? 4 : 5;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+
+    // Map values to human-readable labels for Zoho
+    const purposeLabels: Record<string, string> = {
+      investment: "Investment",
+      "first-home": "First Home Buyer",
+      exploring: "Exploring",
+    };
+
+    const propertyTypeLabels: Record<string, string> = {
+      "new-build": "New Build",
+      existing: "Existing property",
+      "no-preference": "No preference",
+    };
+
+    const timelineLabels: Record<string, string> = {
+      "0-3-months": "0-3 months",
+      "3-6-months": "3-6 months",
+      "6-12-months": "6-12 months",
+    };
+
+    const budgetLabels: Record<string, string> = {
+      "under-750k": "Under $750K",
+      "750k-900k": "$750K–$900K",
+      "over-900k": "Over $900K",
+      "working-on-it": "Working on it",
+    };
+
+    const holdingBackLabels: Record<string, string> = {
+      unsure: "Unsure where to start from",
+      "strategy-session": "I would like a strategy session",
+    };
+
+    const submissionData = {
+      ...formData,
+      purpose: purposeLabels[formData.purpose] || formData.purpose,
+      propertyType: propertyTypeLabels[formData.propertyType] || formData.propertyType,
+      timeline: timelineLabels[formData.timeline] || formData.timeline,
+      budget: budgetLabels[formData.budget] || formData.budget,
+      holdingBack: holdingBackLabels[formData.holdingBack] || formData.holdingBack,
+      states: formData.states.join(", "), // Convert array to comma-separated string
+    };
+
+    try {
+      // Log to terminal for debugging
+      fetch("/api/debug-log", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(submissionData),
+      }).catch(() => { }); // Ignore debug log errors
+
+      const response = await fetch("/api/zoho-flow/7002708614/flow/webhook/incoming?zapikey=1001.edf42e6bad5989a64711f86420fa2c3f.2c57972b92afca0d131902f5f5e527a4&isdebug=false", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(submissionData),
+      });
+      if (!response.ok) {
+        throw new Error(`Failed to submit form: ${response.status} ${response.statusText}`);
+      }
+
+      // Log success to terminal
+      fetch("/api/debug-log", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: "Data successfully sent via Proxy", status: response.status }),
+      }).catch(() => { });
+
+      setIsSubmitted(true);
+      toast({
+        title: "Success!",
+        description: "Your investor roadmap has been generated.",
+      });
+    } catch (error) {      // Log the specific error to the terminal
+      fetch("/api/debug-log", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ error: error.message }),
+      }).catch(() => { });
+
+      console.error("Submission error:", error);
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "There was a problem submitting your request. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const canAdvance = () => {
-    if (step === 1) return formData.firstName && formData.email && formData.phone && formData.purpose;
-    if (formData.purpose === "investment") {
+    if (step === 1) return formData.firstName && formData.lastName && formData.email && formData.phone && formData.purpose;
+    if (formData.purpose === "Investment") {
       if (step === 2) return formData.propertyType;
       if (step === 3) return formData.states.length > 0;
       if (step === 4) return formData.timeline;
       if (step === 5) return formData.budget;
     }
-    if (formData.purpose === "first-home") {
+    if (formData.purpose === "First Home Buyer") {
       if (step === 2) return formData.states.length > 0;
       if (step === 3) return formData.timeline;
       if (step === 4) return formData.budget;
     }
-    if (formData.purpose === "exploring") {
+    if (formData.purpose === "Exploring") {
       if (step === 2) return formData.holdingBack;
     }
     return false;
@@ -85,12 +172,19 @@ const LeadForm = () => {
     if (step === 1) {
       return (
         <div className="space-y-4">
-          <div className="grid sm:grid-cols-3 gap-4">
+          <div className="grid sm:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="firstName">First Name *</Label>
-              <Input id="firstName" placeholder="Your first name" value={formData.firstName}
+              <Input id="firstName" placeholder="First name" value={formData.firstName}
                 onChange={(e) => setFormData({ ...formData, firstName: e.target.value })} required className="h-11" />
             </div>
+            <div className="space-y-2">
+              <Label htmlFor="lastName">Last Name *</Label>
+              <Input id="lastName" placeholder="Last name" value={formData.lastName}
+                onChange={(e) => setFormData({ ...formData, lastName: e.target.value })} required className="h-11" />
+            </div>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="email">Email *</Label>
               <Input id="email" type="email" placeholder="your@email.com" value={formData.email}
@@ -108,9 +202,9 @@ const LeadForm = () => {
             <Select value={formData.purpose} onValueChange={(value) => setFormData({ ...formData, purpose: value as Purpose })}>
               <SelectTrigger className="h-11"><SelectValue placeholder="Select an option" /></SelectTrigger>
               <SelectContent>
-                <SelectItem value="investment">Investment</SelectItem>
-                <SelectItem value="first-home">First Home Buyer</SelectItem>
-                <SelectItem value="exploring">Exploring</SelectItem>
+                <SelectItem value="Investment">Investment</SelectItem>
+                <SelectItem value="First Home Buyer">First Home Buyer</SelectItem>
+                <SelectItem value="Exploring">Exploring</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -119,7 +213,7 @@ const LeadForm = () => {
     }
 
     // Investment path
-    if (formData.purpose === "investment") {
+    if (formData.purpose === "Investment") {
       if (step === 2) return (
         <div className="space-y-2">
           <Label>Q2. New Build or Existing? *</Label>
@@ -140,14 +234,14 @@ const LeadForm = () => {
     }
 
     // First Home Buyer path
-    if (formData.purpose === "first-home") {
+    if (formData.purpose === "First Home Buyer") {
       if (step === 2) return <StatesSelect states={formData.states} toggle={toggleState} />;
       if (step === 3) return <TimelineSelect value={formData.timeline} onChange={(v) => setFormData({ ...formData, timeline: v })} />;
       if (step === 4) return <BudgetSelect value={formData.budget} onChange={(v) => setFormData({ ...formData, budget: v })} />;
     }
 
     // Exploring path
-    if (formData.purpose === "exploring" && step === 2) {
+    if (formData.purpose === "Exploring" && step === 2) {
       return (
         <div className="space-y-2">
           <Label>Q6. What's Holding You Back? *</Label>
@@ -183,7 +277,7 @@ const LeadForm = () => {
           </div>
           <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden border border-border/50 shadow-card">
             <iframe
-              src="https://koalainvest.zohobookings.com.au/#/16651000000521024"
+              src="https://koalainvest.zohobookings.com.au/portal-embed#/16651000000521024"
               title="Book a Consultation with Koala Invest"
               width="100%"
               height="700"
@@ -322,7 +416,7 @@ const BudgetSelect = ({ value, onChange }: { value: string; onChange: (v: string
     <Select value={value} onValueChange={onChange}>
       <SelectTrigger className="h-11"><SelectValue placeholder="Select an option" /></SelectTrigger>
       <SelectContent>
-        <SelectItem value="under-750k">Under $750K</SelectItem>
+        {/* <SelectItem value="under-750k">Under $750K</SelectItem> */}
         <SelectItem value="750k-900k">$750K–$900K</SelectItem>
         <SelectItem value="over-900k">Over $900K</SelectItem>
         <SelectItem value="working-on-it">Working on it</SelectItem>

@@ -34,28 +34,28 @@ const Index = () => {
 
       <div className="min-h-screen bg-background">
         <Header />
-        
+
         <main>
           <Hero />
-          
+
           <section id="value-props">
             <ValueProps />
           </section>
-          
+
           <InvestmentCalculator />
-          
+
           <section id="how-it-works">
             <HowItWorks />
           </section>
-          
+
           <section id="testimonials">
             <Testimonials />
           </section>
-          
-          <TeamPhoto />
-          
+
+          {/* <TeamPhoto /> */}
+
           <LeadForm />
-          
+
           <section id="faq">
             <FAQ />
           </section>
