@@ -68,9 +68,9 @@ const LeadForm = () => {
     };
 
     const budgetLabels: Record<string, string> = {
-      "under-750k": "Under $750K",
-      "750k-900k": "$750K–$900K",
-      "over-900k": "Over $900K",
+      "750K-800K": "$750K–$800K",
+      "800K-950K": "$800K–$950K",
+      "above-950k": "$950K and Above",
       "working-on-it": "Working on it",
     };
 
@@ -270,10 +270,18 @@ const LeadForm = () => {
               </svg>
             </div>
             <h2 className="text-3xl md:text-4xl font-serif mb-3">You're All Set — Priority Investment Consultation</h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-6">
               Thanks <span className="font-semibold text-foreground">{formData.firstName}</span>, for sharing your details.
               Book a quick 15‑minute Priority Investment Consultation to get a clear strategy, tailored recommendations and up‑to‑date market insights for your next move.
             </p>
+            <Button 
+              variant="hero" 
+              size="lg" 
+              className="mb-8"
+              onClick={() => window.open("https://koalainvest.zohobookings.com.au/portal-embed#/16651000000521024", "_blank")}
+            >
+              Book Your 15-Minute Consultation
+            </Button>
           </div>
           <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden border border-border/50 shadow-card">
             <iframe
@@ -416,9 +424,9 @@ const BudgetSelect = ({ value, onChange }: { value: string; onChange: (v: string
     <Select value={value} onValueChange={onChange}>
       <SelectTrigger className="h-11"><SelectValue placeholder="Select an option" /></SelectTrigger>
       <SelectContent>
-        {/* <SelectItem value="under-750k">Under $750K</SelectItem> */}
-        <SelectItem value="750k-900k">$750K–$900K</SelectItem>
-        <SelectItem value="over-900k">Over $900K</SelectItem>
+        <SelectItem value="750K-800K">$750K–$800K</SelectItem>
+        <SelectItem value="800K-950K">$800K–$950K</SelectItem>
+        <SelectItem value="above-950k">$950K and Above</SelectItem>
         <SelectItem value="working-on-it">Working on it</SelectItem>
       </SelectContent>
     </Select>

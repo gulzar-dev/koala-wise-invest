@@ -17,7 +17,7 @@ const Footer = () => {
               <img 
                 src={koalaLogo} 
                 alt="Koala Invest Logo" 
-                className="h-14 w-auto brightness-0 invert"
+                className="h-24 w-auto brightness-0 invert"
               />
             </div>
             <p className="text-primary-foreground/70 leading-relaxed mb-5 max-w-md text-sm">
